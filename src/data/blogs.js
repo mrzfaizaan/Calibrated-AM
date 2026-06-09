@@ -38,6 +38,11 @@ export const blogs = [
         text: 'The Benchy contains six distinct geometry challenges. Each one tests a different slicer capability.',
       },
       {
+        type: 'svg',
+        text: '/assets/Benchy_Labelled.png',
+        alt: 'Labelled 3DBenchy zones: Bow \u2014 Aggressive Overhang, Main Cabin \u2014 Retraction/Stringing test, Chimney \u2014 Small Cross section, cooling critical',
+      },
+      {
         type: 'p',
         text: 'The hull: a continuous overhang curve. The angle changes continuously from base to deck. This is not a fixed overhang. It is a gradient. The slicer must negotiate a curve where every layer extends slightly further than the one below it. A single support threshold angle cannot handle this well because the gradient crosses from mild to aggressive without a clean boundary.',
       },
