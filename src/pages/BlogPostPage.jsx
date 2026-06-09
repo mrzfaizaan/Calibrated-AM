@@ -9,6 +9,16 @@ import { supabase, getVisitorId } from '../lib/supabase';
 import { blogs, author } from '../data/blogs';
 import { site } from '../data/site';
 
+function parseInlineMarkdown(text) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i} className="text-steel">{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+}
+
 export default function BlogPostPage() {
   const { slug } = useParams();
   const post = blogs.find((p) => p.slug === slug);
@@ -263,7 +273,7 @@ export default function BlogPostPage() {
                   key={j}
                   className="text-steel/60 text-sm leading-relaxed"
                 >
-                  {block.text}
+                  {parseInlineMarkdown(block.text)}
                 </p>
               );
             })}
